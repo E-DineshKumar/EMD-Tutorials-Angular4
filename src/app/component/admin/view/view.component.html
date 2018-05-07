@@ -1,0 +1,14 @@
+<app-adminnavbar></app-adminnavbar>
+<div *ngFor="let course of courses">
+	<div class="card col-md-4">
+		<div >
+			<div class="image">
+				<img src="http:localhost:3000/{{course.path}}" alt="IMG" width="270">
+				<div class="overlay">
+					<div class="text" style="font-weight:bold">Start {{course.coursename}} Today</div>
+					<button style="position:relative;margin:80% 38%;font-size:14px;" type="button" class="btn btn-primary btn-lg">Read</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

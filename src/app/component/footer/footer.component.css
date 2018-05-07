@@ -1,12 +1,17 @@
-.footer {
-    position: fixed;
+footer {
+
     left: 0;
     bottom: 0;
     width: 100%;
     background-color:black;
     color: white;
-    text-align: center;
+    text-align: justify;
+    font-size:14px;
 }
 .row{
     background-color: black;
+}
+.page-footer{
+    color: white;
+font-size: 14px;
 }

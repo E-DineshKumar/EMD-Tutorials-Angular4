@@ -11,9 +11,8 @@ export class NodeService {
 
   login(email,password){
     var data = {"email" : email, "password" : password };
-
     let headers = new Headers({ 'Content-Type': 'application/json'});
-    let options = new RequestOptions({headers: headers});
+    let options = new RequestOptions({headers: headers,withCredentials: true});
     let body = JSON.stringify(data);
     console.log(body);
     return this.http.post('http://localhost:3000/login',body,options);
@@ -26,4 +25,9 @@ export class NodeService {
     console.log(body);
     return this.http.post('http://localhost:3000/signup',body,options);
   }
+  home(){
+    let options = new RequestOptions({withCredentials: true});
+    return this.http.get("http://localhost:3000/home", options)
+  }
+  
 }

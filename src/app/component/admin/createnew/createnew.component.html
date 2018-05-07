@@ -1,0 +1,36 @@
+<app-adminnavbar></app-adminnavbar>
+<div class="container">
+  <h2>Create a New Course</h2>
+  <div class="col-md-3" style="display:inline-block">
+    <ul>
+      <li>
+        <label>Course ID</label>
+      </li>
+      <li>
+        <label>Course Name</label>
+      </li>
+      <li>
+        <label>Upload Image</label>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-9" style="display:inline-block">
+    <ul>
+      <li>
+        <input type="text" name="courseid" id="courseid" [(ngModel)]="course_id">
+      </li>
+      <li>
+        <input type="text" name="coursename" id="coursename" [(ngModel)]="course_name">
+      </li>
+      <li>
+        <!-- <input type="file" class="form-control" name="pic" ng2FileSelect [uploader]="uploader" />                                   -->
+        <input type="file" name="pic" (change)="onFileChange($event)">
+      </li>
+      <li>
+        <input type="button" value="Upload" (click)="onUpload()">
+        <!-- <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+          <span class="glyphicon glyphicon-upload"></span> Upload</button> -->
+      </li>
+    </ul>
+  </div>
+</div>
