@@ -7,20 +7,67 @@ import { Router } from '@angular/router';
   styleUrls: ['./view.component.css']
 })
 export class ViewComponent implements OnInit {
-  courses:COURSES;
-  constructor(private nodeService: NodeService, private router: Router) { }
-
-  ngOnInit() {
+   readCourse: String = "";
+  constructor(private nodeService: NodeService, private router: Router) { 
+   
     this.nodeService.home().subscribe(
       (result) => {
         console.log(result);
-        this.courses= JSON.parse(result["_body"]);
+        var jsondata=JSON.parse(result["_body"]);
+        console.log(jsondata[0]);
+        
+        for(var i=0;i<Object.keys(jsondata).length;i++){
+          var feed = jsondata[i];
+          this.courses.push({coursename:feed.coursename,path:"http://localhost:3000/"+feed.path});
+        }    
       },
       (err) => {
         console.log("Error in admin view component",err)
       }
     )
   }
+
+  ngOnInit() {
+    
+  }
+  addContent(){
+    this.router.navigate(["/admin-update"]);
+  }
+  read(coursename){
+    
+    localStorage.setItem("course_name", coursename);
+    this.router.navigate(["/admin-read"]);
+  }
+  delete(coursename){
+    this.nodeService.deleteCourse(coursename).subscribe(
+      (result) =>{
+        alert(JSON.parse(result["_body"]).message);
+        this.load();
+      },
+      (err) => {
+        alert("Error in delete course");
+      }
+    )
+  }
+  load(){
+    this.nodeService.home().subscribe(
+      (result) => {
+        console.log(result);
+        var jsondata=JSON.parse(result["_body"]);
+        console.log(jsondata[0]);
+        
+        for(var i=0;i<Object.keys(jsondata).length;i++){
+          var feed = jsondata[i];
+          this.courses.push({coursename:feed.coursename,path:"http://localhost:3000/"+feed.path});
+        }    
+      },
+      (err) => {
+        console.log("Error in admin view component",err)
+      }
+    )
+  }
+  public courses: COURSES[] = [];
+  
 }
 interface COURSES{
   coursename:String;

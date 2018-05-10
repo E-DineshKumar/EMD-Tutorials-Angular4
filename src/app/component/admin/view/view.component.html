@@ -1,12 +1,24 @@
 <app-adminnavbar></app-adminnavbar>
-<div *ngFor="let course of courses">
-	<div class="card col-md-4">
-		<div >
-			<div class="image">
-				<img src="http:localhost:3000/{{course.path}}" alt="IMG" width="270">
-				<div class="overlay">
-					<div class="text" style="font-weight:bold">Start {{course.coursename}} Today</div>
-					<button style="position:relative;margin:80% 38%;font-size:14px;" type="button" class="btn btn-primary btn-lg">Read</button>
+<div class="container">
+	<div *ngFor="let course of courses">
+		<div class="card col-md-4">
+			<div class="row">
+				<div class="image">
+					<img src="{{course.path}}" alt="IMG" width="270">
+					<div class="overlay">
+						<div class="text" style="font-weight:bold"> {{course.coursename}}</div>
+						<div class="row" style="position:relative;font-size:12px;margin:80% 7%">
+							<button type="button" class="btn btn-primary btn-lg" (click)="addContent()">
+								<i class="material-icons">playlist_add</i>
+							</button>
+							<button type="button" class="btn btn-primary btn-lg" (click)="read(course.coursename)">
+								<i class="material-icons">library_books</i>
+							</button>
+							<button type="button" class="btn btn-primary btn-lg" (click)="delete(course.coursename)">
+								<i class="material-icons">clear</i>
+							</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

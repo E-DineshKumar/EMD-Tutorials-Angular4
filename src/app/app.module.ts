@@ -17,6 +17,9 @@ import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 import { ViewComponent } from './component/admin/view/view.component';
 import { CreatenewComponent } from './component/admin/createnew/createnew.component';
 import { AdminnavbarComponent } from './component/admin/adminnavbar/adminnavbar.component';
+import { UpdateComponent } from './component/admin/update/update.component';
+import { LMarkdownEditorModule } from 'ngx-markdown-editor';
+import { ReadComponent } from './component/admin/read/read.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -24,7 +27,9 @@ const appRoutes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'home', component: HomeComponent },
   { path: 'admin-allcourses', component: ViewComponent },
-  { path: 'admin-createnew', component: CreatenewComponent }
+  { path: 'admin-createnew', component: CreatenewComponent },
+  { path: 'admin-update', component: UpdateComponent },
+  { path: 'admin-read', component: ReadComponent }
 ]
 
 @NgModule({
@@ -39,7 +44,9 @@ const appRoutes: Routes = [
     FileSelectDirective,
     ViewComponent,
     CreatenewComponent,
-    AdminnavbarComponent
+    AdminnavbarComponent,
+    UpdateComponent,
+    ReadComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +54,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     HttpClientModule,
+    LMarkdownEditorModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

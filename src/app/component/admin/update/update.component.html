@@ -1,0 +1,40 @@
+<app-adminnavbar></app-adminnavbar>
+<div class="container">
+  <h2>Update Course</h2>
+  <div class="col-md-3" style="display:inline-block">
+    <ul>
+      <li>
+        <label>Course ID</label>
+      </li>
+      <li>
+        <label>Course Name</label>
+      </li>
+      <li>
+        <label>Section</label>
+      </li>
+      <li>
+        <label>Course Data</label>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-9" style="display:inline-block">
+    <ul>
+      <li>
+        <input type="text" name="courseid" id="courseid" [(ngModel)]="course_id">
+      </li>
+      <li>
+        <input type="text" name="coursename" id="coursename" [(ngModel)]="course_name">
+      </li>
+      <li>
+        <input type="text" name="section" id="section" [(ngModel)]="section">
+      </li>
+      <li>
+        <md-editor name="Content" [preRender]="preRenderFunc" [(ngModel)]="content" [height]="'200px'" [mode]="mode" [options]="options"
+          required maxlength="100000"></md-editor>
+      </li>
+      <li>
+        <input type="button" value="Upload" (click)="onUpload()">
+      </li>
+    </ul>
+  </div>
+</div>

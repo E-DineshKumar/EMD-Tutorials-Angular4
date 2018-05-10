@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse container-fluid">
+<nav class="navbar navbar-inverse container-fluid" style="z-index:2;">
 	<div class="container">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -17,16 +17,16 @@
 					<a routerLink="/admin-createnew" routerLinkActive="active" style="color:white">Create New</a>
 				</li>
 				<li class="size">
-					<a href="#" style="color:white">View Course</a>
+					<a routerLink="/admin-read" routerLinkActive="active" style="color:white">View Course</a>
 				</li>
 				<li class="size">
-					<a href="#" style="color:white">Update Course</a>
+					<a routerLink="/admin-update" routerLinkActive="active" style="color:white">Update Course</a>
 				</li>
 				
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li>
-					<a routerLink="/login" routerLinkActive="active" style="color:white">
+					<a style="color:white"(click)="logout()">
 						<span class="glyphicon glyphicon-log-out"></span> Logout</a>
 				</li>
 			</ul>

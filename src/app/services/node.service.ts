@@ -29,5 +29,40 @@ export class NodeService {
     let options = new RequestOptions({withCredentials: true});
     return this.http.get("http://localhost:3000/home", options)
   }
-  
+  updateCourse(course_id,course_name,section,conent){
+    var data = {"courseId" : course_id, "courseName" : course_name, "topicName" : section, "courseData" : conent};
+    let headers = new Headers({ 'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers,withCredentials: true});
+    let body = JSON.stringify(data);
+    console.log(body);
+    return this.http.post('http://localhost:3000/addCourseData',body,options);
+  }
+  logout(){
+    let options = new RequestOptions({withCredentials: true});
+    return this.http.get("http://localhost:3000/logout", options)
+  }
+  deleteCourse(course_name){
+    var data = {"coursename" : course_name};
+    let headers = new Headers({ 'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers,withCredentials: true});
+    let body = JSON.stringify(data);
+    console.log(body);
+    return this.http.post('http://localhost:3000/deleteCourse',body,options);
+  }
+  getSections(course_name){
+    var data = {"coursename" : course_name};
+    let headers = new Headers({ 'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers,withCredentials: true});
+    let body = JSON.stringify(data);
+    console.log(body);
+    return this.http.post('http://localhost:3000/course/'+course_name,body,options);
+  }
+  getSectionData(course_name,section){
+    var data = {"courseName" : course_name,"section":section};
+    let headers = new Headers({ 'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers,withCredentials: true});
+    let body = JSON.stringify(data);
+    console.log(body);
+    return this.http.post('http://localhost:3000/course/'+course_name+'/'+section,body,options);
+  }
 }

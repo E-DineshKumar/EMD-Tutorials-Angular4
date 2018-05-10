@@ -1,0 +1,14 @@
+ul {
+    list-style-type: none;
+    
+  }
+label{
+    font-weight: 300;
+    font-size: 18px;
+   margin: 15px 0px;
+}
+input{
+    font-size: 14px;
+    font-weight: 300;
+    margin:15px 0px;
+}
