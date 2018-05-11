@@ -1,74 +1,12 @@
 <div class="container">
-    <div class="row">
+    <div *ngFor="let course of courses">
         <div class="card col-md-4">
             <div class="">
                 <div class="image">
-                    <img src="./../../../assets/php.jpg" alt="IMG" width="270">
+                    <img src="{{course.path}}" alt="IMG" width="270">
                     <div class="overlay">
-                        <div class="text" style="font-weight:bold">Start PHP Today</div>
-                        <button style="position:relative;margin:80% 38%;font-size:14px;" type="button" class="btn btn-primary btn-lg">Read</button>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card card-1 col-md-4">
-            <div class="">
-                <div class="image">
-                    <img src="./../../../assets/angular.png" alt="IMG" width="270">
-                    <div class="overlay">
-                        <div class="text" style="font-weight:bold">Start Angular Today</div>
-                        <button style="position:relative;margin:80% 38%;font-size:14px;" type="button" class="btn btn-primary btn-lg">Read</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="card card-2 col-md-4">
-            <div class="">
-                <div class="image">
-                    <img src="./../../../assets/node.png" alt="IMG" width="270">
-                    <div class="overlay">
-                        <div class="text" style="font-weight:bold">Start Nodejs Today</div>
-                        <button style="position:relative;margin:80% 38%;font-size:14px;" type="button" class="btn btn-primary btn-lg">Read</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="card col-md-4">
-            <div class="">
-                <div class="image">
-                    <img src="./../../../assets/php.jpg" alt="IMG" width="270">
-                    <div class="overlay">
-                        <div class="text" style="font-weight:bold">Start PHP Today</div>
-                        <button style="position:relative;margin:80% 38%;font-size:14px;" type="button" class="btn btn-primary btn-lg">Read</button>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card col-md-4">
-            <div class="">
-                <div class="image">
-                    <img src="./../../../assets/php.jpg" alt="IMG" width="270">
-                    <div class="overlay">
-                        <div class="text" style="font-weight:bold">Start PHP Today</div>
-                        <button style="position:relative;margin:80% 38%;font-size:14px;" type="button" class="btn btn-primary btn-lg">Read</button>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card col-md-4">
-            <div class="">
-                <div class="image">
-                    <img src="./../../../assets/php.jpg" alt="IMG" width="270">
-                    <div class="overlay">
-                        <div class="text" style="font-weight:bold">Start PHP Today</div>
-                        <button style="position:relative;margin:80% 38%;font-size:14px;" type="button" class="btn btn-primary btn-lg">Read</button>
-
+                        <div class="text" style="font-weight:bold">Start {{course.coursename}} Today</div>
+                        <button style="position:relative;margin:80% 38%;font-size:14px;" type="button" class="btn btn-primary btn-lg"(click)="read(course.coursename)">Read</button>
                     </div>
                 </div>
             </div>

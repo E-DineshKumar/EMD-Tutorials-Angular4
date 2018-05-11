@@ -1,0 +1,10 @@
+<app-navbar></app-navbar>
+<div class="sidenav">
+  <div class="section" *ngFor="let sec of section">
+      <a (click)="getCourseData(sec)">{{sec}}</a>
+  </div>
+</div>
+<div class="main">
+  <md-editor name="Content" [preRender]="preRenderFunc" [(ngModel)]="content" [height]="'700px'" mode="preview" [options]="options"
+        required maxlength="100000"></md-editor>
+</div>

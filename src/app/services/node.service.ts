@@ -29,8 +29,8 @@ export class NodeService {
     let options = new RequestOptions({withCredentials: true});
     return this.http.get("http://localhost:3000/home", options)
   }
-  updateCourse(course_id,course_name,section,conent){
-    var data = {"courseId" : course_id, "courseName" : course_name, "topicName" : section, "courseData" : conent};
+  updateCourse(course_id,course_name,section,content){
+    var data = {"courseId" : course_id, "courseName" : course_name, "topicName" : section, "courseData" : content};
     let headers = new Headers({ 'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers,withCredentials: true});
     let body = JSON.stringify(data);
@@ -64,5 +64,13 @@ export class NodeService {
     let body = JSON.stringify(data);
     console.log(body);
     return this.http.post('http://localhost:3000/course/'+course_name+'/'+section,body,options);
+  }
+  updateSection(course_name,topicName,content){
+    var data = {"courseName" : course_name, "topicName" : topicName, "courseData" : content};
+    let headers = new Headers({ 'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers,withCredentials: true});
+    let body = JSON.stringify(data);
+    console.log(body);
+    return this.http.post('http://localhost:3000/update-section',body,options);
   }
 }

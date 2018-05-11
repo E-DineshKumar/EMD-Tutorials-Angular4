@@ -20,6 +20,7 @@ import { AdminnavbarComponent } from './component/admin/adminnavbar/adminnavbar.
 import { UpdateComponent } from './component/admin/update/update.component';
 import { LMarkdownEditorModule } from 'ngx-markdown-editor';
 import { ReadComponent } from './component/admin/read/read.component';
+import { ReadcourseComponent } from './component/readcourse/readcourse.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
   { path: 'admin-allcourses', component: ViewComponent },
   { path: 'admin-createnew', component: CreatenewComponent },
   { path: 'admin-update', component: UpdateComponent },
-  { path: 'admin-read', component: ReadComponent }
+  { path: 'admin-read', component: ReadComponent },
+  { path: 'read-course', component: ReadcourseComponent}
 ]
 
 @NgModule({
@@ -46,7 +48,8 @@ const appRoutes: Routes = [
     CreatenewComponent,
     AdminnavbarComponent,
     UpdateComponent,
-    ReadComponent
+    ReadComponent,
+    ReadcourseComponent
   ],
   imports: [
     BrowserModule,

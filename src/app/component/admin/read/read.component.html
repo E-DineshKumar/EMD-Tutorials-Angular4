@@ -7,4 +7,5 @@
 <div class="main">
     <md-editor name="Content" [preRender]="preRenderFunc" [(ngModel)]="content" [height]="'500px'" [mode]="preview" [options]="options"
           required maxlength="100000"></md-editor>
+          <button class="btn btn-primary" (click)="update()">Update</button>
 </div>

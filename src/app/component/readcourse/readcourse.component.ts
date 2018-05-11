@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { NodeService } from "./../../../services/node.service";
+import { NodeService } from "./../../services/node.service";
+
 
 @Component({
-  selector: 'app-read',
-  templateUrl: './read.component.html',
-  styleUrls: ['./read.component.css']
+  selector: 'app-readcourse',
+  templateUrl: './readcourse.component.html',
+  styleUrls: ['./readcourse.component.css']
 })
-export class ReadComponent implements OnInit {
+export class ReadcourseComponent implements OnInit {
   coursename : String;
   content : String;
-  topic: String;
   constructor(private nodeService: NodeService) {
-    this.coursename = localStorage.getItem("course_name");
+    this.coursename = localStorage.getItem("course");
     console.log(this.coursename);
     this.nodeService.getSections(this.coursename).subscribe(
       (result) =>{
@@ -27,10 +27,10 @@ export class ReadComponent implements OnInit {
     
   }
 
+
   ngOnInit() {
   }
   getCourseData(sec){
-    this.topic = sec;
     this.nodeService.getSectionData(this.coursename,sec).subscribe(
       (result) =>{
         console.log(result["_body"]);
@@ -43,17 +43,5 @@ export class ReadComponent implements OnInit {
       }
     )
   }
-  update(){
-    this.nodeService.updateSection(this.coursename,this.topic,this.content).subscribe(
-      (result) =>{
-        alert(JSON.parse(result["_body"]).message);
-      },
-      (err) =>{
-        console.log("error in read component");
-        
-      }
-    )
-  }
   public section:String[] = [];
-
 }
