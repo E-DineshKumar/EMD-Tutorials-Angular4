@@ -1,38 +1,64 @@
-<nav class="navbar navbar-inverse container-fluid">
-	<div class="container" >
-	  <div class="navbar-header">
-		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-		  <span class="icon-bar"></span>
-		  <span class="icon-bar"></span>
-		  <span class="icon-bar"></span>                        
-		</button>
-		<a class="navbar-brand" href="#" style="color:white;font-size:25px;">Mazelon</a>
-	  </div>
-	  <div class="collapse navbar-collapse" id="myNavbar">
-		<ul class="nav navbar-nav">
-		  <li class="active size"><a href="#" style="color:white">Home</a></li>
-		  <li class="dropdown">
-			<a class="dropdown-toggle size" data-toggle="dropdown" href="#"style="color:white">Courses <span class="caret"></span></a>
-			<ul class="dropdown-menu">
-			  <li class="size"><a href="#" style="color:black">All Courses</a></li>
-			  <li class="size"><a href="#" style="color:black">Chat</a></li>
-			  <li class="size"><a href="#" style="color:black">Questions</a></li>
-			</ul>
-			</li>
-			<li class="dropdown">
+<nav class="navbar navbar-inverse container-fluid" style="position:fixed">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" routerLink="/home" routerLinkActive="active" style="color:white;font-size:25px;">Tutorial</a>
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+				<li class="active size">
+					<a routerLink="/home" routerLinkActive="active" style="color:white">Home</a>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle size" data-toggle="dropdown" href="#" style="color:white">Courses
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li class="size">
+							<a href="#" style="color:black">All Courses</a>
+						</li>
+						<li class="size">
+							<a href="#" style="color:black">Chat</a>
+						</li>
+						<li class="size">
+							<a href="#" style="color:black">Questions</a>
+						</li>
+					</ul>
+				</li>
+				<!-- <li class="dropdown">
 					<a class="dropdown-toggle size" data-toggle="dropdown" href="#"style="color:white">Installation <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li class="size"><a href="#"  style="color:black">Install PHP</a></li>
 						<li class="size"><a href="#" style="color:black">Install Angular </a></li>
 						<li class="size"><a href="#" style="color:black">Install Node js</a></li>
 					</ul>
-					</li>
+					</li> -->
 
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-		  <!-- <li><a href="#"style="color:white"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
-		  <li><a (click)="logout()" style="color:white"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-		</ul>
-	  </div>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+
+
+				<li class="dropdown">
+					<a class="dropdown-toggle size" data-toggle="dropdown" href="#" style="color:white">{{username}}
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li class="size">
+							<a href="#" style="color:black">My Profile</a>
+						</li>
+						<li>
+							<a (click)="logout()" style="color:white">
+								<span class="glyphicon glyphicon-log-out"></span> Logout</a>
+						</li>
+
+					</ul>
+				</li>
+
+			</ul>
+		</div>
 	</div>
-  </nav>
+</nav>

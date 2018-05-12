@@ -20,7 +20,8 @@ export class SignupComponent implements OnInit {
   }
 
   onSignup(){
-    if(this.name != undefined && this.email != undefined && this.password != undefined && this.c_password != undefined && this.mobile != undefined){
+
+    if(this.name.length !=0 && this.email.length != 0 && this.password.length != 0 && this.c_password.length != 0 && this.mobile.toString().length <= 9){
       if(this.password === this.c_password){
         this.nodeService.signup(this.name,this.email,this.password,this.mobile).subscribe(
           (result)=>{
@@ -29,7 +30,7 @@ export class SignupComponent implements OnInit {
             this.router.navigate(['/login']);
           },
           (err) => {
-            console.log(err);
+            alert(err);
           }
         )
       }else{

@@ -65,7 +65,8 @@ export class CreatenewComponent implements OnInit {
             .subscribe(
                 data => {
                     console.log('success');
-                    alert(JSON.parse(data)["message"]);
+                    console.log(data);                    
+                    alert(JSON.parse(data).message);
                     this.router.navigate(['/admin-allcourses']);
 
                 },

@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class NodeService {
-
+  baseUrl : string = "http://localhost:3000/";
   constructor(public http : Http) { }
 
   login(email,password){
@@ -15,7 +15,7 @@ export class NodeService {
     let options = new RequestOptions({headers: headers,withCredentials: true});
     let body = JSON.stringify(data);
     console.log(body);
-    return this.http.post('http://localhost:3000/login',body,options);
+    return this.http.post(this.baseUrl+'login',body,options);
   }
   signup(name,email,password,mobile){
     var data = {"name" : name, "email" : email, "password" : password, "mobile" : mobile};
@@ -23,11 +23,11 @@ export class NodeService {
     let options = new RequestOptions({headers: headers});
     let body = JSON.stringify(data);
     console.log(body);
-    return this.http.post('http://localhost:3000/signup',body,options);
+    return this.http.post(this.baseUrl+'signup',body,options);
   }
   home(){
     let options = new RequestOptions({withCredentials: true});
-    return this.http.get("http://localhost:3000/home", options)
+    return this.http.get(this.baseUrl+"home", options)
   }
   updateCourse(course_id,course_name,section,content){
     var data = {"courseId" : course_id, "courseName" : course_name, "topicName" : section, "courseData" : content};
@@ -35,11 +35,11 @@ export class NodeService {
     let options = new RequestOptions({headers: headers,withCredentials: true});
     let body = JSON.stringify(data);
     console.log(body);
-    return this.http.post('http://localhost:3000/addCourseData',body,options);
+    return this.http.post(this.baseUrl+'addCourseData',body,options);
   }
   logout(){
     let options = new RequestOptions({withCredentials: true});
-    return this.http.get("http://localhost:3000/logout", options)
+    return this.http.get(this.baseUrl+"logout", options)
   }
   deleteCourse(course_name){
     var data = {"coursename" : course_name};
@@ -47,7 +47,7 @@ export class NodeService {
     let options = new RequestOptions({headers: headers,withCredentials: true});
     let body = JSON.stringify(data);
     console.log(body);
-    return this.http.post('http://localhost:3000/deleteCourse',body,options);
+    return this.http.post(this.baseUrl+'deleteCourse',body,options);
   }
   getSections(course_name){
     var data = {"coursename" : course_name};
@@ -55,7 +55,7 @@ export class NodeService {
     let options = new RequestOptions({headers: headers,withCredentials: true});
     let body = JSON.stringify(data);
     console.log(body);
-    return this.http.post('http://localhost:3000/course/'+course_name,body,options);
+    return this.http.post(this.baseUrl+'course/'+course_name,body,options);
   }
   getSectionData(course_name,section){
     var data = {"courseName" : course_name,"section":section};
@@ -63,7 +63,7 @@ export class NodeService {
     let options = new RequestOptions({headers: headers,withCredentials: true});
     let body = JSON.stringify(data);
     console.log(body);
-    return this.http.post('http://localhost:3000/course/'+course_name+'/'+section,body,options);
+    return this.http.post(this.baseUrl+'course/'+course_name+'/'+section,body,options);
   }
   updateSection(course_name,topicName,content){
     var data = {"courseName" : course_name, "topicName" : topicName, "courseData" : content};
@@ -71,6 +71,10 @@ export class NodeService {
     let options = new RequestOptions({headers: headers,withCredentials: true});
     let body = JSON.stringify(data);
     console.log(body);
-    return this.http.post('http://localhost:3000/update-section',body,options);
+    return this.http.post(this.baseUrl+'update-section',body,options);
+  }
+  session(){
+    let options = new RequestOptions({withCredentials: true});
+    return this.http.get(this.baseUrl, options)
   }
 }

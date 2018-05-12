@@ -9,28 +9,42 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   email: String;
   password: String;
-  constructor(private nodeService: NodeService, private router: Router) { }
-
-  ngOnInit() {
-    this.nodeService.home().subscribe((result) => {
-      console.log("res", result);
-      if (JSON.parse(result["_body"]).message == "loggedinwithsession")
+  constructor(private nodeService: NodeService, private router: Router) {
+    this.nodeService.session().subscribe((result) => {
+      if (JSON.parse(result["_body"]).message == "loggedin")
+      if (JSON.parse(result["_body"]).username != "admin") {
+        localStorage.setItem("user", JSON.parse(result["_body"]).username)
         this.router.navigate(['/home']);
+      }
+      else {
+        localStorage.setItem("user", JSON.parse(result["_body"]).username)
+        this.router.navigate(['/admin-allcourses']);
+      }
     },
       err => {
         console.log("err", err)
       })
   }
+
+  ngOnInit() {
+
+  }
   onLogin() {
-    if (this.email != undefined && this.password != undefined) {
+    console.log(typeof this.email);
+    
+    if (this.email.length != 0 && this.password.length != 0) {
       this.nodeService.login(this.email, this.password).subscribe(
         (result) => {
           console.log(result);
           if (JSON.parse(result["_body"]).message == "loggedin") {
-            if (JSON.parse(result["_body"]).username != "admin")
+            if (JSON.parse(result["_body"]).username != "admin") {
+              localStorage.setItem("user", JSON.parse(result["_body"]).username)
               this.router.navigate(['/home']);
-            else
+            }
+            else {
+              localStorage.setItem("user", JSON.parse(result["_body"]).username)
               this.router.navigate(['/admin-allcourses']);
+            }
           }
 
         },

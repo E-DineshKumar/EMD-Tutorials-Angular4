@@ -8,8 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor(private nodeService: NodeService,private router: Router) { }
+  username:String;
+  constructor(private nodeService: NodeService,private router: Router) { 
+    this.username = localStorage.getItem("user")
+    console.log(this.username);
+    
+  }
 
   ngOnInit() {
   }

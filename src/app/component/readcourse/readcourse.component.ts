@@ -10,6 +10,7 @@ import { NodeService } from "./../../services/node.service";
 export class ReadcourseComponent implements OnInit {
   coursename : String;
   content : String;
+  
   constructor(private nodeService: NodeService) {
     this.coursename = localStorage.getItem("course");
     console.log(this.coursename);
@@ -21,9 +22,9 @@ export class ReadcourseComponent implements OnInit {
           var feed = jsondata[i];
           this.section.push(feed);
         }
+        this.getCourseData(this.section[0]);
       }
     )
-    console.log(1,this.section);
     
   }
 

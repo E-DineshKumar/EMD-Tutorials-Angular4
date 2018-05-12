@@ -42,6 +42,7 @@ export class ViewComponent implements OnInit {
     this.nodeService.deleteCourse(coursename).subscribe(
       (result) =>{
         alert(JSON.parse(result["_body"]).message);
+        this.courses = [];
         this.load();
       },
       (err) => {
