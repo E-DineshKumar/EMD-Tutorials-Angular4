@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  visible:string;
+  constructor() { 
+   this.visible = localStorage.getItem("visible");
+  }
 
   ngOnInit() {
   }
-
+  onClickChatbot(){
+    this.visible = "chatroom"
+  }
 }

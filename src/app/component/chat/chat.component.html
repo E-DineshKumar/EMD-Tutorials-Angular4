@@ -1,0 +1,69 @@
+<div class="container_chatbot">
+  <div class="app">
+    <div class="head clearfix">
+      <span class="messages-notification">
+        <i class="fa fa-comments-o"></i>
+        <span class="count"></span>
+      </span>
+      <span class="title">Chatroom</span>
+      <span class="create-new">
+        <a (click)="onClickFab()" class="close">
+          <i class="material-icons">expand_more</i>
+        </a>
+      </span>
+    </div>
+
+    <div class="body">
+      <div class="friend-list clearfix">
+        <ul>
+          <li class="active">
+            <img src="./../../../assets/angular.png" alt="" />
+            <span class="name">
+              Angular 4
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="chat-messages">
+        <div class="chat">
+          <div #scrollMe [scrollTop]="scrollMe.scrollHeight" class="chat-content clearfix">
+            <div *ngFor="let m of messages">
+              <!-- <div *ngIf="m.username=='you';then you else bot"></div> -->
+              <ng-template #bot [ngIf]="m.index == 'received'">
+                <span class="friend last">
+                  <div class="username">{{m.username}} :</div>
+                  {{m.message}}
+                </span>
+              </ng-template>
+              <ng-template #you [ngIf]="m.index == 'sent'">
+                <span class="you first">
+                  {{m.message}}
+                </span>
+              </ng-template>
+              <ng-template #notificaion [ngIf]="m.index == 'user_joined'">
+                <span class="connection">
+                  <div>{{m.username}} joined </div>
+                  <div>No. of participants in online : {{m.numUsers}}</div>
+                </span>
+              </ng-template>
+              <ng-template #notificaion [ngIf]="m.index == 'user_left'">
+                <span class="connection">
+                  <div>{{m.username}} left </div>
+                  <div>No. of participants in online : {{m.numUsers}}</div>
+                </span>
+              </ng-template>
+            </div>
+          </div>
+          <div class="msg-box">
+            <input #box (keyup.enter)="onEnter()" type="text" [(ngModel)]="message" class="ip-msg" placeholder="type something.." />
+            <span class="btn-group">
+              <a (click)="onSendMessage()">
+                <i class="material-icons">send</i>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
