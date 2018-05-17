@@ -1,0 +1,46 @@
+<div class="container_chatbot">
+  <div class="app">
+    <div class="head clearfix">
+      <span class="messages-notification">
+        <i class="fa fa-comments-o"></i>
+        <span class="count"></span>
+      </span>
+      <span class="title">Chatroom</span>
+      <span class="create-new">
+        <a (click)="onClickFab()" class="close">
+          <i class="material-icons">expand_more</i>
+        </a>
+      </span>
+    </div>
+
+    <div class="body">
+      <div class="friend-list clearfix">
+        <ul>
+          <li class="active">
+            <img src="./../../../assets/logo1.jpeg" alt="" />
+            <span class="name">
+              Tutorial
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="chat-messages">
+        <div class="chat">
+          <div #scrollMe [scrollTop]="scrollMe.scrollHeight" class="chat-content clearfix">
+            <div *ngFor="let m of courses">
+                <span style="margin-left:10px;margin-top:10px;width:100%">
+                  <a (click)="selectChatRoom(m.coursename)">
+                    <div class="chip">
+                      <img src="{{m.path}}" alt="Person" width="96" height="96">
+                      {{m.coursename}}
+                    </div>
+                  </a>
+                </span>          
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

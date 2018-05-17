@@ -36,26 +36,12 @@
     <b>Discover Latest Courses</b>
   </h1>
 </div>
-<app-cards></app-cards>
+
+<app-cards [test]="hello"></app-cards>
 
 
 <div class="footer">
   <app-footer></app-footer>
 </div>
 
-<ng-template #fab [ngIf]="visible == 'fab'">
-  <div class="menu pmd-floating-action" role="navigation">
-    <a (click)="onClickChatbot()" class="pmd-floating-action-btn btn btn-sm pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-default"
-      data-title="CHat">
-      <span class="pmd-floating-hidden">Chat</span>
-      <i class="material-icons">question_answer</i>
-    </a>
-    <a class="pmd-floating-action-btn btn pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-primary" data-title="Chat">
-      <span class="pmd-floating-hidden">Primary</span>
-      <i class="material-icons pmd-sm">expand_less</i>
-    </a>
-  </div>
-</ng-template>
-<ng-template #chatroom [ngIf]="visible == 'chatroom'">
-  <app-chat></app-chat>
-</ng-template>
+<app-chat></app-chat>

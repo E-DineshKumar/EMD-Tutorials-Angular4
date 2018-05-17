@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NodeService } from '../../services/node.service';
 import { Router } from '@angular/router';
 
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class CardsComponent implements OnInit {
   flag : boolean;
+  @Input("test") test : string;
   constructor(private nodeService: NodeService, private router: Router) { 
    
     this.nodeService.home().subscribe(

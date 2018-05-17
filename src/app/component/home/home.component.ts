@@ -13,7 +13,5 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
-  onClickChatbot(){
-    this.visible = "chatroom"
-  }
+
 }
