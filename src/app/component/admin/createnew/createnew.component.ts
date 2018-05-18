@@ -4,6 +4,7 @@ import { RequestOptions, URLSearchParams, RequestMethod } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { FileUploader } from 'ng2-file-upload';
 import { Router } from '@angular/router';
+import { NodeService } from './../../../services/node.service'
 
 @Component({
     selector: 'app-createnew',
@@ -14,7 +15,7 @@ export class CreatenewComponent implements OnInit {
     course_id: String;
     course_name: String;
 
-    constructor(public http: Http,private router: Router) {
+    constructor(public http: Http,private router: Router,private nodeService : NodeService) {
         this.course_id = "";
         this.course_name = "";
 
@@ -59,7 +60,7 @@ export class CreatenewComponent implements OnInit {
         /** In Angular 5, including the header Content-Type can invalidate your request */
         let headers = new Headers();
         let options = new RequestOptions({ headers: headers, withCredentials: true });
-        this.http.post('http://localhost:3000/createNew', formData, options)
+        this.http.post(this.nodeService.baseUrl+'createNew', formData, options)
             .map(res => res.json())
             .catch(error => Observable.throw(error))
             .subscribe(

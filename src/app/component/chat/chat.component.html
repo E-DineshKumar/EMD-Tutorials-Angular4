@@ -64,8 +64,7 @@
                   <!-- <div *ngIf="m.username=='you';then you else bot"></div> -->
                   <ng-template #bot [ngIf]="m.index == 'received'">
                     <span class="friend last">
-                      <span class="username">{{m.username}} :</span><span>{{m.message}}</span>
-                      
+                      <span class="username">{{m.username}} : </span><span>{{m.message}}</span>
                     </span>
                   </ng-template>
                   <ng-template #you [ngIf]="m.index == 'sent'">

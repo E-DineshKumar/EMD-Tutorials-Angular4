@@ -18,7 +18,7 @@ export class ViewComponent implements OnInit {
         
         for(var i=0;i<Object.keys(jsondata).length;i++){
           var feed = jsondata[i];
-          this.courses.push({coursename:feed.coursename,path:"http://localhost:3000/"+feed.path});
+          this.courses.push({coursename:feed.coursename,path:this.nodeService.baseUrl+feed.path});
         }    
       },
       (err) => {
@@ -59,7 +59,7 @@ export class ViewComponent implements OnInit {
         
         for(var i=0;i<Object.keys(jsondata).length;i++){
           var feed = jsondata[i];
-          this.courses.push({coursename:feed.coursename,path:"http://localhost:3000/"+feed.path});
+          this.courses.push({coursename:feed.coursename,path:this.nodeService.baseUrl+feed.path});
         }    
       },
       (err) => {

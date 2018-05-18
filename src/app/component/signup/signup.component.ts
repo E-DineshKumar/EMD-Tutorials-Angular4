@@ -20,8 +20,8 @@ export class SignupComponent implements OnInit {
   }
 
   onSignup(){
-
-    if(this.name.length !=0 && this.email.length != 0 && this.password.length != 0 && this.c_password.length != 0 && this.mobile.toString().length <= 9){
+        
+    if(this.name.length !=0 && this.email.length != 0 && this.password.length != 0 && this.c_password.length != 0 && this.mobile.toString().length >= 5){
       if(this.password === this.c_password){
         this.nodeService.signup(this.name,this.email,this.password,this.mobile).subscribe(
           (result)=>{

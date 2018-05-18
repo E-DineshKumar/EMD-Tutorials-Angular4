@@ -21,13 +21,13 @@ export class ChatComponent implements OnInit {
   socket: SocketIOClient.Socket;
   constructor(private nodeService: NodeService) {
     this.username = localStorage.getItem("user")
-    this.socket = io.connect('http://localhost:3000/'+this.coursename);
+    this.socket = io.connect(this.nodeService.baseUrl+this.coursename);
     this.nodeService.home().subscribe(
       (result) => {
         var jsondata=JSON.parse(result["_body"]);
         for(var i=0;i<Object.keys(jsondata).length;i++){
           var feed = jsondata[i];
-          this.courses.push({coursename:feed.coursename,path:"http://localhost:3000/"+feed.path});
+          this.courses.push({coursename:feed.coursename,path:this.nodeService.baseUrl+feed.path});
         }    
       },
       (err) => {
@@ -47,7 +47,7 @@ export class ChatComponent implements OnInit {
     this.flag = "chat";
     this.path = path;
     this.coursename = course;
-    this.socket = io.connect('http://localhost:3000/'+course.replace(/ /g, "-"));
+    this.socket = io.connect(this.nodeService.baseUrl+course.replace(/ /g, "-"));
     this.socket.on('new message', (msg: any) => {
       // console.log(msg.username);    
       this.messages.push({ "index": "received", username: msg.username, message: msg.message.message });

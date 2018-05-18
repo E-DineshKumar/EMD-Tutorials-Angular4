@@ -312,10 +312,12 @@ div.msg-box span.btn-group i
 }
 .connection{
   position: relative;
+  display: inline-block;
   text-align: center;
   font-size: 14px;
   font-weight: 500;
-  color: rgb(119, 119, 119)
+  color: rgb(119, 119, 119);
+  left:23%;
 }
 .chip {
   display: inline-block;
